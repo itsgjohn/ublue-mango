@@ -6,7 +6,18 @@ set -ouex pipefail
 cp -avf "/ctx/system_files"/. /
 
 ### Install packages
+
+# Terra repo (provides mangowm)
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
-dnf5 install -y mangowm
+
+# Everything from Fedora's repos and Terra
+dnf5 install -y mangowm noctalia foot fish zellij helix fastfetch
+
+# yazi from COPR
+dnf5 -y copr enable lihaohong/yazi
+dnf5 install -y yazi
+dnf5 -y copr disable lihaohong/yazi
+
+dnf5 clean all
 
 systemctl enable podman.socket
