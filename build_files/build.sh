@@ -11,7 +11,7 @@ cp -avf "/ctx/system_files"/. /
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 # Everything from Fedora's repos and Terra
-dnf5 install -y mangowm noctalia foot fish zellij helix fastfetch
+dnf5 install -y fastfetch fish foot fzf helix mangowm noctalia ripgrep zellij zoxide
 
 # yazi from COPR
 dnf5 -y copr enable lihaohong/yazi
